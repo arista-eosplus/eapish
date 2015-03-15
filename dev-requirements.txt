@@ -1,0 +1,7 @@
+pyeapi
+coverage
+check-manifest
+mock
+pep8
+pyflakes
+
