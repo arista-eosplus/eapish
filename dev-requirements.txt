@@ -4,4 +4,4 @@ check-manifest
 mock
 pep8
 pyflakes
-
+coveralls
