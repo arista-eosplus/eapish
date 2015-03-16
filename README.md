@@ -1,6 +1,8 @@
 # Arista eAPI Client Shell
 
 [![Build Status](https://travis-ci.org/arista-eosplus/eapish.svg?branch=develop)](https://travis-ci.org/arista-eosplus/eapish)
+[![Coverage
+Status](https://coveralls.io/repos/arista-eosplus/eapish/badge.svg?branch=develop)](https://coveralls.io/r/arista-eosplus/eapish?branch=develop)
 
 The Arista eAPI Client Shell is provides an implementation on top of the Python
 Client for eAPI for sending commands to remote EOS nodes across eAPI.  The
