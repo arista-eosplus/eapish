@@ -4,10 +4,10 @@
 [![Coverage
 Status](https://coveralls.io/repos/arista-eosplus/eapish/badge.svg?branch=develop)](https://coveralls.io/r/arista-eosplus/eapish?branch=develop)
 
-The Arista eAPI Client Shell is provides an implementation on top of the Python
-Client for eAPI for sending commands to remote EOS nodes across eAPI.  The
+The Arista eAPI Client Shell provides an implementation on top of the Python
+Client for eAPI for sending commands to remote EOS nodes using eAPI.  The
 eapish application uses pyeapi to establish a connection and forwards one or
-more commands to the destination node and displays the outout on STDOUT.
+more commands to the destination node and displays the output on STDOUT.
 
 This library is freely provided to the open source community for building
 robust applications using Arista EOS.  Support is provided as best effort
@@ -35,7 +35,7 @@ $ eapish show version, show hostname --hosts veos01
 # send 'show version to multiple hosts
 $ eapish show version --hosts veos01,veos02,veos03
 
-# send configuration commands to multple hosts
+# send configuration commands to multiple hosts
 $ eapish vlan 100, name TEST_VLAN --hosts veos01,veos02,veos03 --config
 ```
 
@@ -46,7 +46,7 @@ http://github.com/arista-eosplus/eapish.  All current development is done in
 the 'develop' branch.  Stable versions for release are tagged in the master
 branch and uploaded to PyPi
 
-* To install the latest stable versio of eapish, simply run ``pip install
+* To install the latest stable version of eapish, simply run ``pip install
   eapish`` (or ``pip install --upgrade eapish``)
 * To install the latest development version from Github, simply clone the
   develop branch and run ``python setup.py install`` from the cloned folder.
@@ -54,7 +54,7 @@ branch and uploaded to PyPi
 # TESTING
 
 The client shell provides unit tests for all functionality.  The unit tests can
-be run without an EOS node.  In order to setup your enivornment for running the
+be run without an EOS node.  In order to setup your environment for running the
 tests, use the ``dev-requirements.txt`` file with PIP.  Then to run the unit 
 tests, simply run ``make tests`` from the root of the eapish folder.
 
