@@ -41,7 +41,8 @@ import json
 import pyeapi
 
 def cmd_line_parser(args):
-    '''Parse the command line options and return an args dict'''
+    """Parse the command line options and return an args dict
+    """
 
     parser = argparse.ArgumentParser(description=('Shell command for Arista '
                                                   'EOS command API (eAPI)'))
@@ -98,6 +99,13 @@ def main(args=None):
 
     Parse the command line options, create a pyeapi connection to each host,
     send the commands, print the output from each host.
+
+    Args:
+        args (list): The list of args from the command line
+
+    Returns:
+        0: If the command completed successfully
+        2: If the command did not complete successfully
     """
 
     args = cmd_line_parser(args)
