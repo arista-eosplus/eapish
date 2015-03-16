@@ -1,0 +1,7 @@
+include *.md
+include *.txt
+include .coveragerc
+include LICENSE
+include Makefile
+include VERSION
+recursive-include test *.py
