@@ -8,6 +8,7 @@
 #	make pep8 -- pep8 checks
 #	make pyflakes -- pyflakes checks
 #	make check -- manifest checks
+#	make coverage -- run test coverage
 #	make tests -- run all of the tests
 #	make clean -- clean distutils
 #
@@ -48,5 +49,9 @@ sdist: clean
 	$(PYTHON) setup.py sdist
 
 tests:
+	$(PYTHON) -m unittest discover test/unit -v
+
+coverage:
 	$(COVERAGE) run -m unittest discover test/unit -v
+	$(COVERAGE) report -m
 
