@@ -37,6 +37,7 @@ TODO: Add description and examples
 import argparse
 import hashlib
 import json
+import re
 
 import pyeapi
 
@@ -69,6 +70,14 @@ def cmd_line_parser(args):
 
     return parser.parse_args(args)
 
+def remove_hdr(response):
+    """Extract the header lines from the config. This ensures that a
+       startup config that is the same as the running config will have
+       the same hash.
+    """
+    return re.sub(r'^!.*! device:', '! device:', response,
+                  flags=re.DOTALL|re.IGNORECASE)
+
 def gen_hash_string(response):
     hsh = hashlib.sha256()
     hsh.update(response)
@@ -76,6 +85,7 @@ def gen_hash_string(response):
 
 def get_config(node, cmd):
     response = node.get_config(cmd, as_string=True)
+    response = remove_hdr(response)
     response += gen_hash_string(response)
     return response
 
