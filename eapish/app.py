@@ -89,7 +89,7 @@ def get_config(node, cmd):
     response += gen_hash_string(response)
     return response
 
-def run_cmd(node, config, cmd, encoding):
+def run_cmds(node, config, cmd, encoding):
     if cmd == 'get_configs':
         response = get_config(node, 'startup-config')
         response += get_config(node, 'running-config')
@@ -140,8 +140,6 @@ def main(args=None):
             print 'Error: "%s" connection profile not found' % host
             return 2
 
-        for cmd in cmds.split(','):
-            # Run command and print output
-            run_cmd(node, args.config, cmd, encoding)
+        run_cmds(node, args.config, cmds.split(','), encoding)
 
     return 0
