@@ -89,16 +89,16 @@ def get_config(node, cmd):
     response += gen_hash_string(response)
     return response
 
-def run_cmd(node, config, cmd, encoding):
-    if cmd == 'get_configs':
+def run_cmds(node, config, cmds, encoding):
+    if len(cmds) == 1 and cmds[0] == 'get_configs':
         response = get_config(node, 'startup-config')
         response += get_config(node, 'running-config')
         print response
     else:
         if config:
-            response = node.config(cmd)
+            response = node.config(cmds)
         else:
-            response = node.enable(cmd, encoding=encoding)
+            response = node.enable(cmds, encoding=encoding)
 
         # Print output from command
         print json.dumps(response, sort_keys=True, indent=4,
@@ -140,8 +140,6 @@ def main(args=None):
             print 'Error: "%s" connection profile not found' % host
             return 2
 
-        for cmd in cmds.split(','):
-            # Run command and print output
-            run_cmd(node, args.config, cmd, encoding)
+        run_cmds(node, args.config, cmds.split(','), encoding)
 
     return 0

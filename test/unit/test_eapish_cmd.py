@@ -85,7 +85,8 @@ class TestEapish(unittest.TestCase):
         result = eapish.app.main(args)
 
         self.assertEqual(result, 0)
-        node.enable.assert_called_once_with('show vlan', encoding='json')
+        node.enable.assert_called_once_with(['show vlan'], 
+                                            encoding='json')
 
     @patch('pyeapi.connect_to')
     def test_run_cmd_with_enable_and_text(self, pyeapi_mock):
@@ -97,7 +98,8 @@ class TestEapish(unittest.TestCase):
         result = eapish.app.main(args)
 
         self.assertEqual(result, 0)
-        node.enable.assert_called_once_with('show vlan', encoding='text')
+        node.enable.assert_called_once_with(['show vlan'], 
+                                            encoding='text')
 
     @patch('pyeapi.connect_to')
     def test_run_cmd_with_config(self, pyeapi_mock):
@@ -109,7 +111,7 @@ class TestEapish(unittest.TestCase):
         result = eapish.app.main(args)
 
         self.assertEqual(result, 0)
-        node.config.assert_called_once_with('hostname NAME')
+        node.config.assert_called_once_with(['hostname NAME'])
 
     @patch('pyeapi.connect_to')
     def test_run_cmd_with_get_config(self, pyeapi_mock):
